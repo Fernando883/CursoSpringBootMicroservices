@@ -15,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
 public class UserResource {
@@ -32,17 +28,19 @@ public class UserResource {
 	}
 	
 	@GetMapping("/user/{id}")
-	public EntityModel<User> retrieveAllUser(@PathVariable Integer id) {
+	public User retrieveAllUser(@PathVariable Integer id) {
 		User user = service.findOne(id);
 		if(user == null) {
 			throw new UserNotFoundException("id-"+id);
 		}
 		
-		EntityModel<User> model = new EntityModel<>(user);
-		WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUser());
-		model.add(linkTo.withRel("ir-all-users"));
-		
-		return model;
+		// INI - HATEOAS - Quitamos por error al introducir swagger
+//		EntityModel<User> model = new EntityModel<>(user);
+//		WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUser());
+//		model.add(linkTo.withRel("ir-all-users"));
+		// FIN - HATEOAS
+
+		return user;
 	}
 	
 	@PostMapping("/user")
