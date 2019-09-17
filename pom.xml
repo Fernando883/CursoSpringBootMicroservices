@@ -64,7 +64,7 @@
 		    <artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 		
-		<!-- Para swagger2 -->
+		<!-- Para swagger2 - Importante solo para Spring Boot -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -82,6 +82,22 @@
             <artifactId>spring-plugin-core</artifactId>
             <version>1.2.0.RELEASE</version>
         </dependency>
+        
+        <!-- Spring actuator ofrecen funcionalidades listas para en entorno de producción.
+		Supervisan nuestra aplicación, recopilan métricas, 
+		comprenden y analizan el tráfico y el estado de nuestra
+ 		base de datos, y todo ello sin falta de tener que implementarlo por nuestra cuenta. -->
+
+		<!-- Tb lo quitamos porque  -->
+<!--         <dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-actuator</artifactId> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework.data</groupId> -->
+<!-- 		    <artifactId>spring-data-rest-hal-browser</artifactId> -->
+<!-- 		</dependency> -->
 
 
 	</dependencies>
