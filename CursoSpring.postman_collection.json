@@ -1,0 +1,827 @@
+{
+	"info": {
+		"_postman_id": "18b007b4-35bd-42b5-9f09-ee0ebfe66b45",
+		"name": "CursoSpring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "filtros",
+			"item": [
+				{
+					"name": "filtering",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/filtering-list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filtering-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filtering2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/filtering2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filtering2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "getUsersXML",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser2",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"San\",\r\n    \"birthDate\": \"2019-09-05T07:24:48.731+0000\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/user2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"San\",\r\n    \"birthDate\": \"2019-09-19T11:35:09.573+0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUsersXML",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " <item>\r\n    <name>FerXML</name>\r\n    <birthDate>2019-09-16T13:45:49.171+0000</birthDate>\r\n</item>"
+						},
+						"url": {
+							"raw": "localhost:8080/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "personas",
+			"item": [
+				{
+					"name": "v1Person",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/person",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1PersonParam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/person/param?version=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"param"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1PersonHeader",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-VERSION",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/person/header",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"header"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1PersonProduces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-VERSION",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.company.app-v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/person/produces",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"produces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v2PersonProduces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-VERSION",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/vnd.company.app-v2+json"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/person/produces",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"produces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v2PersonHeader",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-VERSION",
+								"type": "text",
+								"value": "2"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/person/header",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"header"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v2PersonParam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/person/param?version=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"param"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v2Person",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v2/person",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"person"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "autentication",
+			"item": [
+				{
+					"name": "getUserWithAutenthication",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "58bf8425-283d-4734-bd46-9b303faec508",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "jpa",
+			"item": [
+				{
+					"name": "getUsersJpa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jpa/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jpa",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostJpa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jpa/users/3/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jpa",
+								"users",
+								"3",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserJpa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jpa/user/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jpa",
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUserJpa",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jpa/user/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jpa",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUserJpa",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"San\",\r\n    \"birthDate\": \"2019-09-19T11:35:09.573+0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/jpa/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jpa",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPostJpa",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Fer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"My third Post\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jpa/users/3/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jpa",
+								"users",
+								"3",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "helloWorldInternalizacion",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/hello-world-internacional2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello-world-internacional2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

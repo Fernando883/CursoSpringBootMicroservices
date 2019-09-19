@@ -2,6 +2,7 @@ package com.example.demo.user;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -17,20 +18,23 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 @RestController
-public class UserResource {
+public class UserJPAResource {
+
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
-	private UserDaoService service;
+	private PostRepository postRepository;
 	
-	@GetMapping("/users")
+	@GetMapping("/jpa/users")
 	public List<User> retrieveAllUser() {
-		return service.findAll();
+		return userRepository.findAll();
 	}
 	
-	@GetMapping("/user/{id}")
+	@GetMapping("/jpa//user/{id}")
 	public User retrieveAllUser(@PathVariable Integer id) {
-		User user = service.findOne(id);
-		if(user == null) {
+		Optional<User> user = userRepository.findById(id);
+		if(!user.isPresent()) {
 			throw new UserNotFoundException("id-"+id);
 		}
 		
@@ -40,18 +44,18 @@ public class UserResource {
 //		model.add(linkTo.withRel("ir-all-users"));
 		// FIN - HATEOAS
 
-		return user;
+		return user.get();
 	}
 	
-	@PostMapping("/user")
-	public void createUser(@Valid @RequestBody User user) {
-		User savedUser = service.save(user);
+	@DeleteMapping("/jpa/user/{id}")
+	public void deleteUser(@PathVariable Integer id) {
+		userRepository.deleteById(id);
 	}
 	
-	@PostMapping("/user2")
+	@PostMapping("/jpa/user")
 	public ResponseEntity<Object> createUser2(@Valid @RequestBody User user) {
 		// Guardamos el user
-		User savedUser = service.save(user);
+		User savedUser = userRepository.save(user);
 		
 		// obtenemos la url
 		URI location = ServletUriComponentsBuilder
@@ -63,22 +67,38 @@ public class UserResource {
 		return ResponseEntity.created(location).build();
 	}
 	
-	@DeleteMapping("/user/{id}")
-	public void deleteUser(@PathVariable Integer id) {
-		User userDelete = service.deleteById(id);
-		if(userDelete == null) {
+	@GetMapping("/jpa/users/{id}/posts")
+	public List<Post> retrieveAllUserPost(@PathVariable Integer id) {
+		Optional<User> user = userRepository.findById(id);
+		if(!user.isPresent()) {
 			throw new UserNotFoundException("id-"+id);
 		}
+		
+		return user.get().getPosts();
 	}
 	
-	@DeleteMapping("/user1/{id}")
-	public Boolean deleteUserOwn(@PathVariable Integer id) {
-		Boolean delete = service.deleteByIdOwn(id);
-		if(!delete) {
+	@PostMapping("/jpa/users/{id}/posts")
+	public ResponseEntity<Object> createPost(@PathVariable Integer id, @RequestBody Post post) {
+		Optional<User> userOptional = userRepository.findById(id);
+		
+		if(!userOptional.isPresent()) {
 			throw new UserNotFoundException("id-"+id);
 		}
-		return delete;
+		
+		User user = userOptional.get();
+		
+		post.setUser(user);
+		
+		postRepository.save(post);
+		
+		// obtenemos la url
+		URI location = ServletUriComponentsBuilder
+		.fromCurrentRequest()
+		.path("/{id}")
+		.buildAndExpand(post.getId())
+		.toUri();
+		
+		return ResponseEntity.created(location).build();
 	}
-	
 
 }

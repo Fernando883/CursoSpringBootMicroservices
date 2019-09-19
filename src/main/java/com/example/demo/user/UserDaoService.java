@@ -10,21 +10,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDaoService {
 	 
-	private static List<User> users = new ArrayList<>();
+	private static List<UserOld_SinJPA> users = new ArrayList<>();
 	
 	private static int userCount = 3;
 	
 	static {
-		users.add(new User(1, "Fer", new Date()));
-		users.add(new User(2, "Fer1", new Date()));
-		users.add(new User(3, "Fer2", new Date()));
+		users.add(new UserOld_SinJPA(1, "Fer", new Date()));
+		users.add(new UserOld_SinJPA(2, "Fer1", new Date()));
+		users.add(new UserOld_SinJPA(3, "Fer2", new Date()));
 	}
 	
-	public List<User> findAll() {
+	public List<UserOld_SinJPA> findAll() {
 		return users;
 	}
 	
-	public User save(User user) {
+	public UserOld_SinJPA save(UserOld_SinJPA user) {
 		if(user.getId()==null) {
 			user.setId(++userCount);
 		}
@@ -32,8 +32,8 @@ public class UserDaoService {
 		return user;
 	}
 	
-	public User findOne(int id) {
-		for (User user : users) {
+	public UserOld_SinJPA findOne(int id) {
+		for (UserOld_SinJPA user : users) {
 			if(user.getId() == id) {
 				return user;
 			}
@@ -41,11 +41,11 @@ public class UserDaoService {
 		return null;
 	}
 	
-	public User deleteById(int id) {
-		Iterator<User> iterator = users.iterator();
+	public UserOld_SinJPA deleteById(int id) {
+		Iterator<UserOld_SinJPA> iterator = users.iterator();
 		
 		while (iterator.hasNext()) {
-			User user = iterator.next();
+			UserOld_SinJPA user = iterator.next();
 			if(user.getId() == id) {
 				iterator.remove();
 				return user;
@@ -56,7 +56,7 @@ public class UserDaoService {
 	}
 	
 	public boolean deleteByIdOwn(int id) {
-		for (User user : users) {
+		for (UserOld_SinJPA user : users) {
 			if(user.getId() == id) {
 				return users.remove(user);
 			}
